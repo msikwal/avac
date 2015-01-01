@@ -1,0 +1,23 @@
+<br>
+<div class="row ">
+  <form class="col s12" role="form" name="log_frm" id="log_frm">
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+        <input type="tel" ng-Pattern="/[0-9]{10,10}/"  id="mobileNum" name="mobileNum" autocomplete="on" ng-maxlength="10" required ng-model="user.mobile_num">
+        <label for="first_name" class="active">Mobile Number</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+        <input type="password"  id="uPass" name="uPass" required ng-model="user.u_pass">
+        <label for="password" class="active">Password</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 offset-m3 offset-l3">
+      	<button ng-click="login(user)" ng-disabled="log_frm.$invalid" class="btn waves-effect waves-light">Login<i class="mdi-content-send right"></i></button>
+      </div>
+    </div>
+  </form>
+</div>
+	

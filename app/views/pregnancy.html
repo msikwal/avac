@@ -1,0 +1,61 @@
+<br>
+<div class="row ">
+	<form class="col s12" role="form" method="post" action="" name="p_frm" id="p_frm">
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="text" class="form-control " ng-model="preDetails.mother_name" id="motherName" name="motherName" required>
+        <label for="childern_name" class="active">Mother Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="tel" ng-Pattern="/[0-9]{10,10}/" class="form-control securityMobile" id="mobileNum" name="mobileNum"  autocomplete="on" ng-maxlength="10" required ng-model="preDetails.mobile_num">
+        <label for="mobile_number" class="active">Mobile Number</label>
+      </div>
+    </div>
+     <div class="row" ng-show="(!!preDetails.mobile_num)">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+    		<input type="tel"  ng-Pattern="/[0-9]{10,10}/"  ng-disabled="!(!!preDetails.mobile_num)" id="ReMobileNum" name="ReMobileNum"  autocomplete="off" ng-maxlength="10" required ng-model="preDetails.re_mobile_num">
+    		<label for="mobile_number" class="active">Confirm Mobile Number</label>
+			<div ng-show="(p_frm.mobileNum.$dirty && p_frm.ReMobileNum.$dirty) && (preDetails.mobile_num != preDetails.re_mobile_num)">
+	        <span class="text-danger error ">Mobile Number mismatched.</span>
+	    	</div>
+		</div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+          <select class="form-control" ng-model="preDetails.currentMonth" required ng-change="displayExpDate(preDetails.currentMonth)"> 
+					<option value="">-- choose on going month --</option>
+					<option ng-repeat="month in months" value="{{month.val}}">{{month.name}}</option>
+    	  </select>           
+        </div>
+    </div>
+	<div class="row">
+	  <div class=" col s12 offset-m3 offset-l3">
+		<div class="col s6 m3 l3 ">
+			<label for="m_name" class="control-label">Expected Date</label>
+			<div class="d_expectedMonth" ng-model="preDetails.expectedDate">{{expectedDate}}</div>
+		</div>
+		<div class="col s6 m3 l3 ">
+			<label for="m_name" class="control-label">Remaining Days</label>
+			<div class="remainingDays"></div>
+		</div>
+	  </div>
+	</div>
+	<div class="row">
+        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+         <p ng-repeat="interval in intervals">
+		      <input  type="radio" name="preRadio" ng-model="preDetails.interval" ng-value="interval" ng-required />
+		      <label for="{{interval.name}}">{{interval.name}}</label>
+    	</p>         
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 offset-m3 offset-l3">
+      	<button ng-click="update(preDetails)" ng-disabled="p_frm.$invalid || isUnchanged(preDetails)" class="btn waves-effect waves-light ">Save<i class="mdi-content-send right"></i></button>
+		<a  class="btn btn-primary btn-block " href="#/dashboard">Back</a>
+      </div>
+    </div>
+  </form>
+</div>

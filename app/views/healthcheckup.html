@@ -1,0 +1,50 @@
+<br>
+<div class="row ">
+	<form class="col s12" role="form" method="post" action="" name="patient_frm" id="patient_frm">
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="text" class="form-control " ng-model="healthDetails.patient_name" id="patientName" name="patientName" required>
+        <label for="childern_name" class="active">Patient Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="tel" ng-Pattern="/[0-9]{10,10}/" class="form-control securityMobile" id="mobileNum" name="mobileNum" autocomplete="on" ng-maxlength="10" required ng-model="healthDetails.mobile_num">
+        <label for="mobile_number" class="active">Mobile Number</label>
+      </div>
+    </div>
+     <div class="row" ng-show="(!!healthDetails.mobile_num)">
+      		<div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      		<input type="tel" ng-Pattern="/[0-9]{10,10}/" class="form-control "  ng-disabled="!(!!healthDetails.mobile_num)" id="ReMobileNum" name="ReMobileNum"  autocomplete="off" ng-maxlength="10" required ng-model="healthDetails.re_mobile_num">
+      		<label for="mobile_number" class="active">Confirm Mobile Number</label>
+				<div ng-show="(patient_frm.mobileNum.$dirty && patient_frm.ReMobileNum.$dirty) && (healthDetails.mobile_num != healthDetails.re_mobile_num)">
+			        <span class="text-danger error ">Mobile Number mismatched.</span>
+			    </div>
+	    	</div>
+	</div>
+    <div class="row">
+        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+          <select class="form-control" ng-model="healthDetails.currentMonth"  ng-change="validateSubscription(healthDetails.currentMonth,healthDetails.duration.val)" required> 
+					<option value="">-- choose subscription --</option>
+					<option ng-repeat="month in months" value="{{month.val}}">{{month.name}}</option>
+    	  </select>          
+        </div>
+    </div>
+	
+	<div class="row">
+        <div class=" col s12 m6 l6 offset-m3 offset-l3">
+         <p ng-repeat="duration in durations">
+         	  <input type="radio" ng-model="healthDetails.duration"  ng-value="duration" ng-change="validateSubscription(healthDetails.currentMonth,healthDetails.duration.val)" ng-required>
+		      <label for="{{duration.name}}">{{duration.name}}</label>
+    	</p>         
+    	<div class="text-danger error" ng-show="invalidDetails" >Issue with subscription days and notification interval.</div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 offset-m3 offset-l3">
+      <button ng-click="update(healthDetails)" ng-disabled="patient_frm.$invalid || isUnchanged(healthDetails) || invalidDetails==true" class="btn waves-effect waves-light ">Save<i class="mdi-content-send right"></i></button>
+				<a  class="btn btn-primary btn-block " href="#/dashboard">Back</a>
+      </div>
+    </div>
+  </form>
+</div>

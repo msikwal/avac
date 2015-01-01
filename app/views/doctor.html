@@ -1,0 +1,36 @@
+<br>
+<div class="row ">
+	<form class="col s12" role="form" name="doc_frm" id="doc_frm">
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="text" id="f_name" ng-model="doctor.first_name" name="f_name" required>
+        <label for="first_name" class="active">First Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="text" id="l_name"  ng-model="doctor.last_name" name="l_name"  required>
+        <label for="first_name" class="active">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+        <input type="email" class="form-control " id="doc_email" ng-model="doctor.email" name="doc_email" >
+        <label for="email" class="active">Email</label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+          <textarea class="materialize-textarea" id="wel_msg" name="wel_msg" cols="3" rows="2" ng-model="doctor.text_msg" required></textarea>           
+          <label for="textarea" class="active">Text Message</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 offset-m3 offset-l3">
+      <button ng-click="update(doctor)" ng-disabled="doc_frm.$invalid || isUnchanged(doctor)" class="btn waves-effect waves-light ">SAVE<i class="mdi-content-send right"></i></button>
+      </div>
+    </div>
+    <input type="hidden" name="doc_id" ng-model="doctor.doc_id" id="doc_id" value="{{doc_id}}">
+		<input type="hidden"  ng-model="doctor.mobile_num" id="mobile_num" name="mobile_num">
+  </form>
+</div>

@@ -1,0 +1,15 @@
+<div class='page_title'>Vaccination Chart</div>
+	<table class="striped">
+		<tr>
+			<td data-field="id" class="orange-text">Sr</td>
+			<td data-field="age" class="orange-text">Age</td>
+			<td data-field="disease" class="orange-text">Disease</td>
+			<td data-field="vac_name" class="orange-text ">Vac name</td>
+		</tr>
+		<tr ng-repeat="vacChartDetails in vac_chart_details" class="vc_details" >
+			<td>{{$index+1}}</td>
+			<td>{{vacChartDetails.child_age}}</td>
+			<td>{{vacChartDetails.disease}}</td>
+			<td>{{vacChartDetails.vac_name}}</td>
+		</tr>
+	</table>

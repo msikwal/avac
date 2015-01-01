@@ -1,0 +1,61 @@
+@import url("../../bower_components/materialize/dist/css/materialize.css");
+
+select {
+	display :block;
+}
+.input-field label.active {
+	font-size: 1rem !important;
+	color: orange !important;
+	font-weight :bold;
+}
+
+.nav-wrapper .active {
+	color: white  !important;
+	font-size : 16px;
+	background-color : #03a9f4;
+}
+@media only screen and (max-width: 992px){
+	ul.side-nav li {
+		padding: 0;
+	}
+}
+@media only screen and (max-width: 992px){
+	ul.side-nav {
+		top: 55px;
+	}
+}
+lable {
+	transfrom : translateY(-130%);
+}
+
+input.ng-invalid.ng-dirty {
+    border-bottom: 1px solid #e65100;
+    -webkit-box-shadow: 0 1px 0 0 #e65100;
+    -moz-box-shadow: 0 1px 0 0 #e65100;
+    box-shadow: 0 1px 0 0 #e65100;
+  }
+
+input.ng-valid.ng-dirty {
+    border-bottom: 1px solid #4CAF50;
+    -webkit-box-shadow: 0 1px 0 0 #4CAF50;
+    -moz-box-shadow: 0 1px 0 0 #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+textarea.ng-invalid.ng-dirty {
+    border-bottom: 1px solid #e65100;
+    -webkit-box-shadow: 0 1px 0 0 #e65100;
+    -moz-box-shadow: 0 1px 0 0 #e65100;
+    box-shadow: 0 1px 0 0 #e65100;
+  }
+
+textarea.ng-valid.ng-dirty {
+    border-bottom: 1px solid #4CAF50;
+    -webkit-box-shadow: 0 1px 0 0 #4CAF50;
+    -moz-box-shadow: 0 1px 0 0 #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+hr {
+}
+.securityMobile {
+	-webkit-text-security : disc;
+}

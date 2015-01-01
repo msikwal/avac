@@ -1,0 +1,53 @@
+<br>
+<div class="row ">
+	<form class="col s12" role="form" method="post" action="" name="c_frm" id="c_frm" novalidate>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="text" id="childernName" ng-model="child.childern_name" name="childernName"  required autocomplete="off">
+        <label for="childern_name" class="active">Childern Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="tel" ng-Pattern="/[0-9]{10,10}/" class=" securityMobile" id="mobileNum" name="mobileNum" autocomplete="off" ng-maxlength="10" required ng-model="child.mobile_num">
+        <label for="mobile_number" class="active">Mobile Number</label>
+      </div>
+    </div>
+     <div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+      	<input type="tel" ng-Pattern="/[0-9]{10,10}/" class="form-control "  ng-disabled="!(!!child.mobile_num)" id="ReMobileNum" name="ReMobileNum"  autocomplete="off" ng-maxlength="10" required ng-model="child.re_mobile_num">
+      	<label for="mobile_number" class="active">Confirm Mobile Number</label>
+		<div ng-show="(c_frm.mobileNum.$dirty && c_frm.ReMobileNum.$dirty) && (child.mobile_num != child.re_mobile_num)">
+		<span class="text-danger error ">Mobile Number mismatched</span>
+		</div>
+      </div>
+    </div>
+    <!-- div class="row">
+      <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+	  <select>
+	    <option value="" disabled selected>Vaccination for</option>
+	    <option value="male">Baby Boy</option>
+		<option value="female">Baby Girl</option>
+	  </select>
+      </div>
+    </div-->
+    <div class="row">
+        <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
+          <input type="date" class="form-control" id="b_date" name="b_date" ng-model="child.birth_date" placeholder="Birth Date" min={{min_date}}  max={{max_date}} required autocomplete="off">           
+          <label for="birth_date" class="active">Birth date</label>
+        </div>
+    </div>
+	<div class="row">
+	  <div class=" col s12 offset-m3 offset-l3">
+		<input type="checkbox" id="test7" checked="checked"/>
+	  	<label for="test5">Accept Terms and Conditions</label>
+	  </div>
+	</div>
+    <div class="row">
+      <div class="input-field col s12 offset-m3 offset-l3">
+      <button ng-click="update(child)" ng-disabled="c_frm.$invalid || isUnchanged(child)" class="btn waves-effect waves-light ">Save<i class="mdi-content-send right"></i></button>
+				<a  class="btn waves-effect waves-light " href="#/dashboard">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
